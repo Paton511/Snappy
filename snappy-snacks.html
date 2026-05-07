@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snappy Snacks – Crocodile Treats for Dogs with Sensitive Stomachs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #FDFAF5;
+      --dark:     #1A2E1C;
+      --green:    #2C5F3D;
+      --green-lt: #3D7A52;
+      --gold:     #C8890A;
+      --gold-lt:  #F5A623;
+      --text:     #1A1A1A;
+      --muted:    #6B6B6B;
+      --border:   #E4DDD2;
+      --white:    #FFFFFF;
+      --card-bg:  #FFFFFF;
+      --badge-bg: #FFF8EC;
+      --r:        6px;
+      --max:      1200px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── UTILS ────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--badge-bg);
+      border: 1px solid #F0D79A;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--r);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--dark);
+      color: var(--white);
+      border-color: var(--dark);
+    }
+    .btn-primary:hover { background: var(--green); border-color: var(--green); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+    .btn-gold:hover { background: #b07a09; border-color: #b07a09; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--dark);
+      border-color: var(--dark);
+    }
+    .btn-outline:hover { background: var(--dark); color: var(--white); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.7);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+
+    /* ── ANNOUNCEMENT BAR ─────────────────────────────── */
+    .ann-bar {
+      background: var(--dark);
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 9px 20px;
+      letter-spacing: 0.01em;
+    }
+
+    .ann-bar strong { color: var(--gold-lt); }
+
+    /* ── HEADER ───────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      max-width: var(--max);
+      margin: 0 auto;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .logo img { height: 44px; border-radius: 4px; }
+
+    .primary-nav {
+      display: flex;
+      gap: 2px;
+      list-style: none;
+    }
+
+    .primary-nav a {
+      padding: 7px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .primary-nav a:hover { background: var(--cream); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .icon-btn:hover { background: var(--cream); }
+    .icon-btn svg { width: 20px; height: 20px; }
+
+    .cart-btn {
+      position: relative;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--r);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .cart-btn:hover { background: var(--green); }
+    .cart-btn svg { width: 16px; height: 16px; }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: all 0.25s;
+    }
+
+    /* Mobile nav */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+    }
+    .mobile-overlay.open { display: block; }
+    .mobile-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .mobile-drawer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 300px; height: 100%;
+      background: var(--white);
+      padding: 28px 24px;
+      box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+    }
+    .mobile-overlay.open .mobile-drawer { transform: translateX(0); }
+    .mobile-drawer-close {
+      background: none; border: none; cursor: pointer;
+      font-size: 22px; margin-bottom: 28px; display: block; color: var(--text);
+    }
+    .mobile-nav-list { list-style: none; }
+    .mobile-nav-list li + li { margin-top: 4px; }
+    .mobile-nav-list a {
+      display: block; padding: 10px 12px;
+      font-size: 16px; font-weight: 500;
+      border-radius: 6px; transition: background 0.15s;
+    }
+    .mobile-nav-list a:hover { background: var(--cream); }
+    .mobile-drawer-cta { margin-top: 24px; }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 82vh;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 60px 72px 40px;
+    }
+
+    .hero-copy .tag { margin-bottom: 20px; }
+
+    .hero-headline {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--gold-lt);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .trust-item svg { width: 14px; height: 14px; color: var(--gold-lt); flex-shrink: 0; }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 30% center;
+      display: block;
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--dark) 0%, transparent 30%);
+    }
+
+    /* ── SOCIAL PROOF BAR ─────────────────────────────── */
+    .proof-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+    }
+
+    .proof-bar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 32px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .proof-item + .proof-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .proof-icon { font-size: 18px; }
+
+    .proof-stars {
+      display: flex;
+      gap: 2px;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    /* ── PROBLEM SECTION ──────────────────────────────── */
+    .problem-section {
+      padding: 96px 40px;
+      background: var(--cream);
+    }
+
+    .problem-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .problem-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+    }
+
+    .problem-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .problem-copy h2 {
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .problem-copy p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .problem-copy p strong { color: var(--text); font-weight: 600; }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 28px 0;
+    }
+
+    /* ── BENEFITS SECTION ─────────────────────────────── */
+    .benefits-section {
+      padding: 96px 40px;
+      background: var(--dark);
+    }
+
+    .benefits-header {
+      max-width: var(--max);
+      margin: 0 auto 60px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .benefits-header h2 {
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      max-width: 480px;
+    }
+
+    .benefits-header p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 340px;
+      line-height: 1.7;
+    }
+
+    .benefits-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+
+    .benefit-card:hover { background: rgba(255,255,255,0.1); }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200,137,10,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .benefit-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .benefit-card p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ── PRODUCTS SECTION ─────────────────────────────── */
+    .products-section {
+      padding: 96px 40px;
+      background: var(--cream);
+    }
+
+    .section-header {
+      max-width: var(--max);
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #F2EDE5;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .product-info {
+      padding: 20px 22px 22px;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .add-to-cart {
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--r);
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .add-to-cart:hover { background: var(--green); }
+
+    /* ── TESTIMONIALS ─────────────────────────────────── */
+    .reviews-section {
+      padding: 96px 40px;
+      background: var(--white);
+    }
+
+    .reviews-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: 15px;
+    }
+
+    .review-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .review-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ── HOW IT WORKS ─────────────────────────────────── */
+    .hiw-section {
+      padding: 96px 40px;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
+    .hiw-steps {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+
+    .hiw-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.66% + 20px);
+      right: calc(16.66% + 20px);
+      height: 1px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .hiw-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hiw-number {
+      width: 56px;
+      height: 56px;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+    }
+
+    .hiw-step h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hiw-step p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    /* ── CTA BANNER ───────────────────────────────────── */
+    .cta-banner {
+      background: var(--green);
+      padding: 80px 40px;
+    }
+
+    .cta-banner-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .cta-banner-btns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cta-guarantee {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── FAQ ──────────────────────────────────────────── */
+    .faq-section {
+      padding: 96px 40px;
+      background: var(--white);
+    }
+
+    .faq-list {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: color 0.15s;
+    }
+
+    .faq-question:hover { color: var(--green); }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      transition: transform 0.25s, background 0.2s;
+      color: var(--dark);
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .faq-answer {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.75;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 22px;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    .site-footer {
+      background: var(--dark);
+      padding: 64px 40px 32px;
+    }
+
+    .footer-top {
+      max-width: var(--max);
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-brand .logo {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 24px;
+    }
+
+    .footer-email-form {
+      display: flex;
+      gap: 0;
+    }
+
+    .footer-email-form input {
+      flex: 1;
+      padding: 11px 16px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-right: none;
+      color: var(--white);
+      border-radius: var(--r) 0 0 var(--r);
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .footer-email-form input::placeholder { color: rgba(255,255,255,0.35); }
+    .footer-email-form input:focus { background: rgba(255,255,255,0.12); }
+
+    .footer-email-form button {
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--gold);
+      color: var(--white);
+      border: 1px solid var(--gold);
+      border-radius: 0 var(--r) var(--r) 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .footer-email-form button:hover { background: #b07a09; border-color: #b07a09; }
+
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-legal a {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.15s;
+    }
+
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 1020px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { height: 50vw; min-height: 280px; }
+      .hero-copy { padding: 52px 32px; }
+      .hero-image::after { background: linear-gradient(to bottom, var(--dark) 0%, transparent 40%); }
+      .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+      .problem-image { order: -1; }
+      .problem-image img { height: 300px; }
+    }
+
+    @media (max-width: 680px) {
+      .container, .header-inner { padding-left: 20px; padding-right: 20px; }
+      .primary-nav { display: none; }
+      .hamburger { display: block; }
+      .hero-copy { padding: 44px 20px; }
+      .proof-bar { padding: 14px 20px; }
+      .proof-item { padding: 6px 16px; font-size: 12px; }
+      .problem-section, .benefits-section, .products-section,
+      .reviews-section, .hiw-section, .cta-banner, .faq-section { padding: 64px 20px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .product-img-wrap img { height: 180px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .hiw-steps { grid-template-columns: 1fr; gap: 28px; }
+      .hiw-steps::before { display: none; }
+      .cta-banner-btns { flex-direction: column; align-items: center; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .footer-brand { grid-column: auto; }
+      .benefits-header { flex-direction: column; }
+      .site-footer { padding: 52px 20px 28px; }
+    }
+
+    @media (max-width: 420px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { text-align: center; justify-content: center; }
+      .proof-bar-inner { flex-direction: column; }
+      .proof-item + .proof-item { border-left: none; border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="ann-bar">
+    🇦🇺 <strong>Free shipping</strong> on orders over $75 &nbsp;·&nbsp; 30-day money-back guarantee &nbsp;·&nbsp; <strong>Single-ingredient. Nothing hidden.</strong>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="https://snappysnacks4dogs.com/cdn/shop/files/snappy_logo.jpg" alt="Snappy Snacks">
+        Snappy Snacks
+      </a>
+      <nav>
+        <ul class="primary-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#products">Shop</a></li>
+          <li><a href="#why">Why Croc?</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <button class="icon-btn" aria-label="Search">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+        <a href="#products" class="cart-btn">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          Shop Now
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-overlay" id="mobileNav">
+    <div class="mobile-backdrop" id="navBackdrop"></div>
+    <nav class="mobile-drawer">
+      <button class="mobile-drawer-close" id="navClose">×</button>
+      <ul class="mobile-nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Shop All</a></li>
+        <li><a href="#why">Why Crocodile?</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="mobile-drawer-cta">
+        <a href="#products" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Shop Treats →</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="tag">🐊 Novel Protein · Made in Australia</div>
+          <h1 class="hero-headline">
+            Your Dog Deserves a Treat That Actually<br>
+            <em>Agrees With Them.</em>
+          </h1>
+          <p class="hero-sub">
+            If your dog reacts to chicken or beef, they probably haven't tried crocodile. It's the world's cleanest novel protein — slow-dried, single-ingredient, and absolutely irresistible.
+          </p>
+          <div class="hero-ctas">
+            <a href="#products" class="btn btn-gold">Shop Treats →</a>
+            <a href="#products" class="btn btn-outline-white">Try the Sample Pack</a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-item">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18l-1.45-1.32C4.4 12.36 1 9.28 1 5.5 1 3.42 2.92 1.5 5 1.5c1.74 0 3.41.91 4.5 2.34C10.59 2.41 12.26 1.5 14 1.5c2.08 0 4 1.92 4 4 0 3.78-3.4 6.86-7.55 11.18L10 18z"/></svg>
+              Vet Recommended
+            </span>
+            <span class="trust-item">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18l-1.45-1.32C4.4 12.36 1 9.28 1 5.5 1 3.42 2.92 1.5 5 1.5c1.74 0 3.41.91 4.5 2.34C10.59 2.41 12.26 1.5 14 1.5c2.08 0 4 1.92 4 4 0 3.78-3.4 6.86-7.55 11.18L10 18z"/></svg>
+              Zero Fillers
+            </span>
+            <span class="trust-item">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18l-1.45-1.32C4.4 12.36 1 9.28 1 5.5 1 3.42 2.92 1.5 5 1.5c1.74 0 3.41.91 4.5 2.34C10.59 2.41 12.26 1.5 14 1.5c2.08 0 4 1.92 4 4 0 3.78-3.4 6.86-7.55 11.18L10 18z"/></svg>
+              30-Day Guarantee
+            </span>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://snappysnacks4dogs.com/cdn/shop/files/snappy-snacks-logo-top-right-no-text.png" alt="Happy dog with Snappy Snacks crocodile treat">
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <div class="proof-bar">
+      <div class="proof-bar-inner">
+        <div class="proof-item">
+          <span class="proof-stars">★★★★★</span>
+          <span><strong>4.9/5</strong> from 200+ reviews</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-icon">🇦🇺</span>
+          <span>Australian Farmed Crocodile</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-icon">🔬</span>
+          <span>Single Ingredient</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-icon">✅</span>
+          <span>30-Day Money Back</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM / SOLUTION -->
+    <section class="problem-section" id="why">
+      <div class="problem-inner">
+        <div class="problem-image">
+          <img src="https://snappysnacks4dogs.com/cdn/shop/files/snappy-snacks-logo-top-right-no-text.png" alt="Dog at sunset">
+        </div>
+        <div class="problem-copy">
+          <div class="tag">Sound familiar?</div>
+          <h2>Itchy skin. Upset stomach. Another vet bill.</h2>
+          <div class="divider"></div>
+          <p>
+            If your dog reacts to chicken, beef, or fish — you already know the frustration. You've tried the expensive prescription food. You've checked every label. <strong>Nothing sticks long-term.</strong>
+          </p>
+          <p>
+            Most dog treats use the same proteins your dog has already been exposed to thousands of times. When the immune system recognises a protein, that's when reactions happen.
+          </p>
+          <p>
+            <strong>Crocodile changes the equation entirely.</strong> It's a true novel protein — most dogs have never eaten it. No prior exposure means no immune response. No reaction. Just a treat they can actually enjoy.
+          </p>
+          <a href="#products" class="btn btn-primary" style="margin-top:8px">Find the Right Treat →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits-section">
+      <div class="benefits-header">
+        <h2>Why Snappy Snacks is different<br>from every other treat on the shelf.</h2>
+        <p>We do one thing and we do it properly. No shortcuts, no fillers, no nonsense — just crocodile, dried slow and clean.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🧬</div>
+          <h3>True Novel Protein</h3>
+          <p>Crocodile is one of the rarest proteins in pet food. No prior exposure means no immune reaction — even in the most sensitive dogs.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏷️</div>
+          <h3>One Ingredient. Period.</h3>
+          <p>Read our label. It says crocodile. That's it. No by-products, no binders, no "natural flavours" you can't identify.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌡️</div>
+          <h3>Slow-Dried to Lock In Nutrition</h3>
+          <p>High-heat processing destroys nutrients. We dry low and slow to preserve amino acids, minerals, and everything your dog actually benefits from.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌏</div>
+          <h3>Ethically Farmed in Australia</h3>
+          <p>Every croc is traceable, farmed responsibly, and processed locally. You know exactly what you're giving your dog and where it came from.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+      <div class="section-header">
+        <div class="tag">The Range</div>
+        <h2>Pick Your Pack</h2>
+        <p>Six varieties, one ingredient. Start with the Sample Pack if you're not sure where to begin.</p>
+      </div>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://snappysnacks4dogs.com/cdn/shop/files/Copilot_20260407_083053.png" alt="Crocodile Tails">
+            <span class="product-badge">Best Seller</span>
+          </div>
+          <div class="product-info">
+            <h3>Crocodile Tails</h3>
+            <p class="product-desc">A long-lasting chew that keeps anxious or bored dogs occupied. Great for large breeds.</p>
+            <div class="product-footer">
+              <span class="product-price">$10.99</span>
+              <button class="add-to-cart">Add to Cart +</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://snappysnacks4dogs.com/cdn/shop/files/Copilot_20260407_110744.png" alt="Crocodile Leg Bones">
+          </div>
+          <div class="product-info">
+            <h3>Crocodile Leg Bones</h3>
+            <p class="product-desc">Dense, satisfying, and packed with natural marrow. The ultimate chew for serious gnawers.</p>
+            <div class="product-footer">
+              <span class="product-price">$39.99</span>
+              <button class="add-to-cart">Add to Cart +</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://snappysnacks4dogs.com/cdn/shop/files/Copilot_20260407_110124.png" alt="Crocodile Jerky Strips">
+          </div>
+          <div class="product-info">
+            <h3>Crocodile Jerky Strips</h3>
+            <p class="product-desc">Thin, tender, and easy to break into training-sized pieces. Dogs go absolutely wild for these.</p>
+            <div class="product-footer">
+              <span class="product-price">$27.99</span>
+              <button class="add-to-cart">Add to Cart +</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://snappysnacks4dogs.com/cdn/shop/files/Copilot_20260407_100642.png" alt="Crocodile Tail Bites">
+          </div>
+          <div class="product-info">
+            <h3>Crocodile Tail Bites</h3>
+            <p class="product-desc">Bite-sized chunks perfect for training rewards or daily snacking. High value, low guilt.</p>
+            <div class="product-footer">
+              <span class="product-price">$19.99</span>
+              <button class="add-to-cart">Add to Cart +</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://snappysnacks4dogs.com/cdn/shop/files/Copilot_20260407_075153.png" alt="Crocodile Feet">
+          </div>
+          <div class="product-info">
+            <h3>Crocodile Feet</h3>
+            <p class="product-desc">Naturally rich in collagen and glucosamine — good for joints and perfect for smaller dogs.</p>
+            <div class="product-footer">
+              <span class="product-price">$19.99</span>
+              <button class="add-to-cart">Add to Cart +</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://snappysnacks4dogs.com/cdn/shop/files/Copilot_20260407_111430.png" alt="Sample Party Pack">
+            <span class="product-badge">Start Here</span>
+          </div>
+          <div class="product-info">
+            <h3>Sample Party Pack</h3>
+            <p class="product-desc">Not sure where to start? Try four varieties and let your dog decide their favourite.</p>
+            <div class="product-footer">
+              <span class="product-price">$39.99</span>
+              <button class="add-to-cart">Add to Cart +</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="reviews-section" id="reviews">
+      <div class="section-header">
+        <div class="tag">Real Dogs. Real Results.</div>
+        <h2>What Pet Parents Are Saying</h2>
+        <p>We're brand new — but our early customers haven't been shy about sharing.</p>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"My golden has had itchy skin for three years. Two weeks on the Jerky Strips and the scratching has genuinely stopped. I don't know whether to cry or do a lap around the block."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-name">Sarah M.</div>
+              <div class="review-meta">Golden Retriever owner · Verified Purchase</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Vesper is the pickiest dog alive. She's rejected every treat I've tried in two years. These arrived, I gave her one Tail Bite, and she sat perfectly still waiting for a second. Obsessed."</p>
+          <div class="review-author">
+            <div class="review-avatar">J</div>
+            <div>
+              <div class="review-name">James T.</div>
+              <div class="review-meta">Staffy owner · Verified Purchase</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Vet suggested trying a novel protein after Max kept reacting to standard food. These were the first thing I tried. Zero reaction, and he absolutely loves the Leg Bones. Game changer."</p>
+          <div class="review-author">
+            <div class="review-avatar">P</div>
+            <div>
+              <div class="review-name">Priya K.</div>
+              <div class="review-meta">Labrador owner · Verified Purchase</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="hiw-section">
+      <div class="section-header">
+        <div class="tag">Simple as that</div>
+        <h2>From Our Farm to Your Dog's Bowl</h2>
+      </div>
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-number">1</div>
+          <h3>Choose Your Pack</h3>
+          <p>Pick a variety that suits your dog's size and chewing style — or grab the Sample Pack to try them all.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">2</div>
+          <h3>We Ship Fast</h3>
+          <p>Orders packed and dispatched within 1 business day. Free delivery Australia-wide on orders over $75.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-number">3</div>
+          <h3>Watch Them Thrive</h3>
+          <p>Happy dog. Clear skin. No more ingredient hunting. Just one treat you can actually feel good about.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="cta-banner-inner">
+        <div class="tag" style="color:#F5A623;border-color:#8B6A1A;background:rgba(200,137,10,0.15);">Risk-Free Offer</div>
+        <h2>Start With the Sample Pack.<br>Your Dog Will Tell You the Rest.</h2>
+        <p>Try all four varieties for $39.99. If your dog doesn't absolutely love them — or if you don't notice a difference — we'll refund every cent. No forms. No hassle.</p>
+        <div class="cta-banner-btns">
+          <a href="#products" class="btn btn-gold">Try the Sample Pack — $39.99 →</a>
+          <a href="#products" class="btn btn-outline-white">Browse All Treats</a>
+        </div>
+        <p class="cta-guarantee">🔒 30-day money-back guarantee · No questions asked</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+      <div class="section-header">
+        <div class="tag">Got Questions?</div>
+        <h2>Frequently Asked</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Why is crocodile better than other "novel" proteins like kangaroo or venison?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Kangaroo and venison have become increasingly common in commercial pet food, meaning many dogs have already been exposed — and can still react. Crocodile remains genuinely rare. The vast majority of dogs have never encountered it as a protein source, which makes it far more effective as a hypoallergenic option.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Are Snappy Snacks treats safe for puppies?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes — the Jerky Strips and Tail Bites are soft enough for puppies and small dogs. We'd recommend avoiding the Leg Bones until your pup has their adult teeth (around 6–7 months). When in doubt, check with your vet.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How should I store the treats?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Keep them in the sealed bag in a cool, dry place. No refrigeration needed. Once opened, they stay fresh for up to 4 weeks — though in our experience, they rarely last that long.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What if my dog doesn't like them?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            That almost never happens — but we stand behind everything we sell. If your dog isn't into it within 30 days of delivery, reach out and we'll refund you in full. No return required, no awkward questions.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you ship outside Australia?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Not yet — we're currently Australian-only while we nail operations. International shipping is on the roadmap and we'll announce it to our email list first. Sign up below to be the first to know.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="https://snappysnacks4dogs.com/cdn/shop/files/snappy_logo.jpg" alt="Snappy Snacks">
+          Snappy Snacks
+        </div>
+        <p>100% Australian crocodile treats for dogs who deserve better. One ingredient. Nothing hidden. Ever.</p>
+        <form class="footer-email-form" onsubmit="return false;">
+          <input type="email" placeholder="Your email address">
+          <button type="submit">Join Us</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul class="footer-links">
+          <li><a href="#products">All Treats</a></li>
+          <li><a href="#products">Sample Party Pack</a></li>
+          <li><a href="#products">Crocodile Jerky Strips</a></li>
+          <li><a href="#products">Crocodile Leg Bones</a></li>
+          <li><a href="#products">Crocodile Feet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul class="footer-links">
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Snappy Snacks. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Refunds</a></li>
+        <li><a href="#">Shipping</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const navBackdrop = document.getElementById('navBackdrop');
+    const navClose = document.getElementById('navClose');
+
+    function openNav() { mobileNav.classList.add('open'); }
+    function closeNav() { mobileNav.classList.remove('open'); }
+
+    hamburger.addEventListener('click', openNav);
+    navClose.addEventListener('click', closeNav);
+    navBackdrop.addEventListener('click', closeNav);
+    document.querySelectorAll('.mobile-nav-list a, .mobile-drawer-cta a').forEach(a => {
+      a.addEventListener('click', closeNav);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Add to cart feedback
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const original = this.textContent;
+        this.textContent = '✓ Added!';
+        this.style.background = '#2C5F3D';
+        setTimeout(() => {
+          this.textContent = original;
+          this.style.background = '';
+        }, 1800);
+      });
+    });
+  </script>
+
+</body>
+</html>
